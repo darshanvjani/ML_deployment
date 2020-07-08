@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np 
 app = Flask(__name__)
 
-load_model = pickle.load(open("cancer_dt","rb"))
+load_model = pickle.load(open("cancer_dt_pkl","rb"))
 
 cols = ['Age', 'Gender', 'Air Pollution', 'Alcohol use',
        'Dust Allergy', 'OccuPational Hazards', 'Genetic Risk',
@@ -38,4 +38,4 @@ def predict():
     
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0",port=5000)
