@@ -64,3 +64,17 @@ col_m = st.multiselect('select the column to be displayed',select_box_data_1.col
 st.line_chart(select_box_data_1[col_m])
 
 st.text("--------------------------------------")
+
+slider_data = pd.DataFrame(
+    np.random.randn(1000,3),
+    columns=['something_1','something_2','something_3']
+)
+
+if st.checkbox("show data"):
+    st.write(slider_data.tail())
+    
+something_1_pred = st.slider("select the something_1 value",float(slider_data.something_1.min()),float(slider_data.something_2.max()),float(slider_data.something_3.mean()))
+
+
+if st.button("get the prediction")==1:
+    st.write("result1")
